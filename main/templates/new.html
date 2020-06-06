@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 85%;
+            text-align: center;
+            margin: 5% auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="text-align: center;">
+        <header>BOOK-MARK</header>
+        <br>
+        <div>
+            <button class="btn btn-info btn-lg btn-block"
+                onclick="window.location.href = '{% url 'main:show'%}'">HOME</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"> Bookmark 새로 만들기</h4>
+            <hr>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input class="btn btn-secondary btn-lg btn-block" type="submit" value="수정">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+{% endblock %}
